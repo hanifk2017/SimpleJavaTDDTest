@@ -30,15 +30,9 @@ public class ProductCatalogTest {
     @Test
     public void testApplesAndOrangesInProductCatalog(){
 
-        Assert.assertEquals(APPLE,productCatalog.getProduct(APPLE));
-        Assert.assertEquals(ORANGE,productCatalog.getProduct(ORANGE));
+        Assert.assertNotNull(productCatalog.getProduct(APPLE));
+        Assert.assertNotNull(productCatalog.getProduct(ORANGE));
 
-    }
-
-    @Test
-    public void testOInProductCatalog(){
-
-        Assert.assertEquals(productCatalog.getNoOfproducts(),2);
     }
 
     @Test
@@ -46,6 +40,14 @@ public class ProductCatalogTest {
 
         Assert.assertNull(productCatalog.getProduct(null));
         Assert.assertNull(productCatalog.getProduct(BANANAS));
+
+    }
+
+    @Test
+    public void testProductPricesAreCorrectInProductCatalog(){
+
+        Assert.assertEquals(Double.valueOf(0.6), productCatalog.getProduct(APPLE));
+        Assert.assertEquals(Double.valueOf(0.25),productCatalog.getProduct(ORANGE));
 
     }
 }
